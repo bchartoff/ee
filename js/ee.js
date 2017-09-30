@@ -40,7 +40,7 @@ function reshuffle(){
 		.removeClass("default")
 		.removeClass("disable")
 		.addClass("animating")
-		.attr("src", "/img/intro2.gif")
+		.attr("src", "https://bchartoff.github.io/ee/img/intro2.gif")
 		.animate({
 			"opacity": 1
 		}, 500)
