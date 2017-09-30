@@ -131,12 +131,12 @@ function handleTouchMove(evt) {
     var yDiff = yDown - yUp;
 
     if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
-        if ( xDiff > 50 ) {
+        if ( xDiff > 200 ) {
             /* left swipe */
 			var pageNum = getPageNum()
 			showPage(pageNum - 1)
         }
-        else if (xDiff < 50) {
+        else if (xDiff < 200) {
             /* right swipe */
 			var pageNum = getPageNum()
 			showPage(pageNum + 1)
