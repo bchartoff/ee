@@ -1,0 +1,52 @@
+body{
+	font-family: Lato;
+	background-color: #000000;
+	margin: 0;
+}
+
+img.intro{
+	height: calc(100% - 80px);
+	margin: 0 auto;
+	margin-top: 40px;
+	margin-bottom: 40px;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	z-index: 2;
+}
+img.page{
+	height: calc(100% - 80px);
+	margin: 0 auto;
+	margin-top: 40px;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	z-index: 1;
+	opacity: 0;
+}
+.arrow{
+    height: 80px;
+    position: fixed;
+    cursor: pointer;
+}
+.left.arrow{
+    top: calc(50% - 40px);
+    left: 110px;
+}
+.right.arrow{
+    top: calc(50% - 40px);
+    right: 110px;
+    transform: rotate(180deg)
+}
+
+
+.control{
+	opacity: 0;
+}
+
+@media (max-width: 768px){
+	img.intro, img.page{
+		height: auto !important;	
+		width: 100%;
+	}
+}
