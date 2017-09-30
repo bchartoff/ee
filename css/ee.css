@@ -98,12 +98,12 @@ img.page{
 	}
 	.arrow{
 		z-index: 4;
-		height: 20px;
+		height: 30px;
 	}
 	.right.arrow{
-		right: 2px;
+		right: 4px;
 	}
 	.left.arrow{
-		left: 2px;
+		left: 4px;
 	}
 }
