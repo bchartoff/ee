@@ -86,9 +86,9 @@ $(document).ready(function()
 		else if(img.hasClass("default")){
 			img.removeClass("default");
 			img.addClass("animating");
-	        img.attr("src", "/img/intro1.gif");
+	        img.attr("src", "https://bchartoff.github.io/ee/img/intro1.gif");
 	        window.setTimeout(function(){
-	        	img.attr("src", "/img/intro2.gif");
+	        	img.attr("src", "https://bchartoff.github.io/ee/img/intro2.gif");
 	        }, 4700)
 	    }
 	    else if(img.hasClass("animating")){
