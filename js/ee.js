@@ -127,12 +127,10 @@ function handleTouchMove(evt) {
             /* left swipe */
 			var pageNum = getPageNum()
 			showPage(pageNum - 1)
-            }
         } else {
             /* right swipe */
 			var pageNum = getPageNum()
 			showPage(pageNum + 1)
-            }
         }                       
     } else {
         // if ( yDiff > 0 ) {
