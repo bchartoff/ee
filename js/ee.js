@@ -24,7 +24,7 @@ function showPage(pageNum){
 	center();
 	$("#page").attr("data-pageNum", pageNum)
 	$("#page").css("opacity",1)
-	$("#page").attr("src", "/img/source " + pageNum + ".jpeg")
+	$("#page").attr("src", "https://bchartoff.github.io/ee/img/source%20" + pageNum + ".jpeg")
 	$("#introLoad").animate({
 		"opacity": 0
 	}, 500)
