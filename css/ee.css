@@ -1,6 +1,6 @@
 body{
 	font-family: Lato;
-	background-color: #000000;
+	background-color: #9b3927;
 	margin: 0;
 }
 
@@ -39,14 +39,64 @@ img.page{
     transform: rotate(180deg)
 }
 
-
+#share{
+	position: fixed;
+	bottom: 0px;
+	right: 12px;
+	font-family: Lato;
+    width: 400px;
+    font-size: 16px;
+    background-color: #4c1b14;
+    color: #fff;
+    border: none;
+    padding: 12px;
+    z-index: 3;
+}
+#reshuffle{
+    position: fixed;
+    bottom: 60px;
+    right: 12px;
+    padding: 12px;
+    background: #4c1b14;
+    color: white;
+    cursor: pointer;
+}
 .control{
 	opacity: 0;
+}
+#isMobile{
+	display: none;
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	width: 0px;
+	height: 0px;
 }
 
 @media (max-width: 768px){
 	img.intro, img.page{
 		height: auto !important;	
 		width: 100%;
+	}
+	#isMobile{
+		display: block;
+	}
+	#share{
+		bottom: 0px;
+		left: 0px;
+		right: auto;
+		width: 100%;
+		font-size: 13px;
+	}
+	#reshuffle{
+		bottom: auto;
+	    top: 0px;
+	    width: 100%;
+	    left: 0px;
+	    right: auto;
+	    text-align: center;
+	}
+	.arrow{
+		display: none;
 	}
 }

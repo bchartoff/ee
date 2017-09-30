@@ -9,6 +9,10 @@ function getQueryVariable(variable) {
     }
 }
 
+function IS_MOBILE(){
+	return $("#isMobile").css("display") == "block"
+}
+
 function randBetween(min, max) {
 	return parseInt(Math.random() * (max - min) + min);
 }
@@ -16,6 +20,7 @@ function getPageNum(){
 	return parseInt($("#page").attr("data-pageNum"))
 }
 function showPage(pageNum){
+	$("#share").val("https://bchartoff.github.io/ee/index.html?poem=" + pageNum)
 	center();
 	$("#page").attr("data-pageNum", pageNum)
 	$("#page").css("opacity",1)
@@ -28,20 +33,27 @@ function showPage(pageNum){
 	}, 1500)
 }
 function reshuffle(){
+	if(IS_MOBILE()){
+		$("#page").css("opacity",0)
+	}
 	$("#introLoad")
-	.removeClass("default")
-	.removeClass("disable")
-	.addClass("animating")
-	.attr("src", "/img/intro2.gif")
-	.animate({
-		"opacity": 1
-	}, 500)
-	$(".control").animate({
-		"opacity":0
-	}, 1500)
+		.removeClass("default")
+		.removeClass("disable")
+		.addClass("animating")
+		.attr("src", "/img/intro2.gif")
+		.animate({
+			"opacity": 1
+		}, 500)
+		$(".control").animate({
+			"opacity":0
+		}, 1000)
 }
 function center(){
-	$("#page").css("top", 40-1*window.innerHeight + "px")
+	if(IS_MOBILE()){
+		$("#page").css("top", -40-1*(parseFloat(document.getElementById("introLoad").getBoundingClientRect().height)) + "px")	
+	}else{
+		$("#page").css("top", 40-1*window.innerHeight + "px")	
+	}
 }
 
 $(document).ready(function()
@@ -62,6 +74,9 @@ $(document).ready(function()
 	$(".right.arrow").click(function(){
 		var pageNum = getPageNum()
 		showPage(pageNum + 1)
+	})
+	$("#reshuffle").click(function(){
+		reshuffle();
 	})
     $("#introLoad").click(function(){
 		var img = $(this);
@@ -84,4 +99,51 @@ $(document).ready(function()
 	    }
      })
 });
+
+document.addEventListener('touchstart', handleTouchStart, false);        
+document.addEventListener('touchmove', handleTouchMove, false);
+
+var xDown = null;                                                        
+var yDown = null;                                                        
+
+function handleTouchStart(evt) {                                         
+    xDown = evt.touches[0].clientX;                                      
+    yDown = evt.touches[0].clientY;                                      
+};                                                
+
+function handleTouchMove(evt) {
+    if ( ! xDown || ! yDown ) {
+        return;
+    }
+
+    var xUp = evt.touches[0].clientX;                                    
+    var yUp = evt.touches[0].clientY;
+
+    var xDiff = xDown - xUp;
+    var yDiff = yDown - yUp;
+
+    if ( Math.abs( xDiff ) > Math.abs( yDiff ) ) {/*most significant*/
+        if ( xDiff > 0 ) {
+            /* left swipe */
+			var pageNum = getPageNum()
+			showPage(pageNum - 1)
+            }
+        } else {
+            /* right swipe */
+			var pageNum = getPageNum()
+			showPage(pageNum + 1)
+            }
+        }                       
+    } else {
+        // if ( yDiff > 0 ) {
+        //     /* up swipe */ 
+        // } else { 
+        //     /* down swipe */
+        // }
+        return;                                                              
+    }
+    /* reset values */
+    xDown = null;
+    yDown = null;                                             
+};
 
