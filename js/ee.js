@@ -56,6 +56,9 @@ function center(){
 	}
 	$("#container").css("height", (window.innerHeight - 40)  + "px")
 }
+$(window).on("resize", function(){
+	center();
+})
 
 $(document).ready(function()
 {
