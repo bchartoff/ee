@@ -28,6 +28,9 @@ function showPage(pageNum){
 	$("#introLoad").animate({
 		"opacity": 0
 	}, 500)
+	window.setTimeout(function(){
+		$("#introLoad").css("z-index",-1)
+	}, 700)
 	$(".control").animate({
 		"opacity":1
 	}, 1500)
@@ -36,6 +39,7 @@ function reshuffle(){
 	if(IS_MOBILE()){
 		$("#page").css("opacity",0)
 	}
+	$("#introLoad").css("z-index",2)
 	$("#introLoad")
 		.removeClass("default")
 		.removeClass("disable")
@@ -52,7 +56,7 @@ function center(){
 	if(IS_MOBILE()){
 		$("#page").css("top", -40-1*(parseFloat(document.getElementById("introLoad").getBoundingClientRect().height)) + "px")	
 	}else{
-		$("#page").css("top", 40-1*window.innerHeight + "px")	
+		$("#page").css("top", 80-1*window.innerHeight + "px")	
 	}
 	$("#container").css("height", (window.innerHeight - 40)  + "px")
 }
