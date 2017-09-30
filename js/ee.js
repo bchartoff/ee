@@ -54,6 +54,7 @@ function center(){
 	}else{
 		$("#page").css("top", 40-1*window.innerHeight + "px")	
 	}
+	$("#container").css("height", (window.innerHeight - 40)  + "px")
 }
 
 $(document).ready(function()
